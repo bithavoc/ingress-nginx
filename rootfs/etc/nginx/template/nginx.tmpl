@@ -1235,11 +1235,11 @@ stream {
             {{ end }}
 
             {{ $proxySetHeader }} X-Request-ID           $req_id;
-            {{ $proxySetHeader }} X-Real-IP              $remote_addr;
+            # {{ $proxySetHeader }} X-Real-IP              $remote_addr;
             {{ if and $all.Cfg.UseForwardedHeaders $all.Cfg.ComputeFullForwardedFor }}
-            {{ $proxySetHeader }} X-Forwarded-For        $full_x_forwarded_for;
+            # {{ $proxySetHeader }} X-Forwarded-For        $full_x_forwarded_for;
             {{ else }}
-            {{ $proxySetHeader }} X-Forwarded-For        $remote_addr;
+            # {{ $proxySetHeader }} X-Forwarded-For        $remote_addr;
             {{ end }}
             {{ $proxySetHeader }} X-Forwarded-Host       $best_http_host;
             {{ $proxySetHeader }} X-Forwarded-Port       $pass_port;
